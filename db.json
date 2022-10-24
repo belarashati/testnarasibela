@@ -1,0 +1,159 @@
+{
+  "headline": {
+    "title": "Berita Duka: Detik-detik Prosesi Pemakaman Ratu Elizabeth II Hari Ini Kapel St George, Windsor, Inggris.",
+    "date": "25 Oktober 2021",
+    "image" : "main-thumbnail.png"
+  },
+
+  "artikel": {
+    "title": "Ferdy Sambo Tersangka Pembunuhan Berencana ke Brigadir Yosua, Kapolri: Motif Masih Didalami ",
+    "date": "12 Aug 2022 15:00 WIB",
+    "preview": "Kapolri Jendral Polisi Listyo Sigit Prabowo mengumumkan penetapan tersangka Irjen Pol Ferdy Sambo dalam kasus pembunuhan Brigadir Nofriansyah Yosua Hutabara atau Brigadir J. Timsus telah memutuskan untuk menetapkan saudara FS (Ferdy Sambo) sebagai tersangka,” kata Listyo dalam konfrensi pers di Mabes Polri, Selasa (9/8/2022).",
+    "image": "main-article.png"
+  },
+  "headline_swiper": [
+    {
+      "id": 1,
+      "title": "\"Indonesia\" Pernah Pindah Ibu Kota pada Zaman Penjajahan dan Masa Dar..",
+      "source": "Narasi Newsroom",
+      "image": "thumbnail-1.png",
+      "date":"25 Oktober 2021"
+    },
+    {
+      "id": 2,
+      "title": "Keluarga Korban Kebakaran Lapas Tangerang : Harus Ada Yang Ber..",
+      "source": "Narasi Newsroom",
+      "image": "THUMBNAIL-2.png",
+      "date": "25 Oktober 2021"
+    },
+    {
+      "id": 3,
+      "title": "Bantu Mahasiswa Jalani Perkuliahan | Surat Untuk Najwa",
+      "source": "WMN by Narasi",
+      "image": "THUMBNAIL-3.png",
+      "date": "25 Oktober 2021"
+    },
+    {
+      "id": 4,
+      "title": "Jombang Darurat Kekerasan Seksual, Beberapa Pelakunya Agamawan",
+      "source": "Narasi Newsroom",
+      "image": "THUMBNAIL-4.png",
+      "date": "25 Oktober 2021"
+    },
+    {
+      "id": 5,
+      "title": "Harga Melambung, Pemerintah CabutT HET Migor Kemasan",
+      "source": "Narasi Newsroom",
+      "image": "THUMBNAIL-5.png",
+      "date": "25 Oktober 2021"
+    }
+  ],
+  "terpopuler": [
+    {
+      "id": 1,
+      "title": "Harga Melambung, Pemerintah CabutT HET Migor Kemasan",
+      "image": "THUMBNAIL-5.png",
+      "category": "Narasi Pagi • Lifestyle",
+      "date": "25 Oktober 2021"
+    },
+    {
+      "id": 2,
+      "title": "Tulus dan Hati-Hati di Jalan: Musik Galau Menipu Otak Supaya Kita Tenang. Lagunya..",
+      "image": "THUMBNAIL-6.png",
+      "category": "Buka Data • Human Interest",
+      "date": "25 Oktober 2021"
+    },
+    {
+      "id": 3,
+      "title": "Minyak Goreng Langka, DPR Ancam Panggil Paksa Menteri Perdagangan",
+      "image": "THUMBNAIL-7.png",
+      "category": "Narasi Newsroom • News & Politics",
+      "date": "25 Oktober 2021"
+    },
+    {
+      "id": 4,
+      "title": "Minyak Goreng Langka, DPR Ancam Panggil Paksa Menteri Perdagangan",
+      "image": "THUMBNAIL-1.png",
+      "category": "Narasi Newsroom • News & Politics",
+      "date": "25 Oktober 2021"
+    },
+    {
+      "id": 5,
+      "title": "Konflik Rusia Ukraina Kalo Kejadian di Kantor",
+      "image": "THUMBNAIL-8.png",
+      "category": "Namanya Juga Lyfe • Lifestyle",
+      "date": "25 Oktober 2021"
+    }
+  ],
+
+  "pilihan_narasi": [
+    {
+      "id": 1,
+      "title": "Dari Medan Perang Ukraina vs Rusia",
+      "image": "Rectangle-1.png",
+      "date": "25 Oktober 2021"
+    },
+    {
+      "id": 2,
+      "title": "Pemilu Ditunda, Jokowi Tambah Lama Jadi..",
+      "image": "Rectangle-2.png",
+      "date": "25 Oktober 2021"
+    },
+    {
+      "id": 3,
+      "title": "Cerita di Balik Mahal dan Langkanya Miny..",
+      "image": "Rectangle-3.png",
+      "date": "25 Oktober 2021"
+    },
+    {
+      "id": 4,
+      "title": "Cerita Tak Sedap Para Crazy Rich",
+      "image": "Rectangle-4.png",
+      "date": "25 Oktober 2021"
+    },
+    {
+      "id": 5,
+      "title": "Harga Melambung, Pemerintah CabutT HET Migor Kemasan",
+      "image": "Rectangle-5.png",
+      "date": "25 Oktober 2021"
+    }
+  ],
+
+  "artikel_swiper": [
+    {
+      "id": 1,
+      "title": "Harga Melambung, Pemerintah CabutT HET Migor Kemasan",
+      "image": "THUMBNAIL-5.png",
+      "category": "Narasi Pagi • Lifestyle",
+      "date": "25 Oktober 2021"
+    },
+    {
+      "id": 2,
+      "title": "Tulus dan Hati-Hati di Jalan: Musik Galau Menipu Otak Supaya Kita Tenang. Lagunya..",
+      "image": "THUMBNAIL-6.png",
+      "category": "Buka Data • Human Interest",
+      "date": "25 Oktober 2021"
+    },
+    {
+      "id": 3,
+      "title": "Minyak Goreng Langka, DPR Ancam Panggil Paksa Menteri Perdagangan",
+      "image": "THUMBNAIL-7.png",
+      "category": "Narasi Newsroom • News & Politics",
+      "date": "25 Oktober 2021"
+    },
+    {
+      "id": 4,
+      "title": "Minyak Goreng Langka, DPR Ancam Panggil Paksa Menteri Perdagangan",
+      "image": "THUMBNAIL-1.png",
+      "category": "Narasi Newsroom • News & Politics",
+      "date": "25 Oktober 2021"
+    },
+    {
+      "id": 5,
+      "title": "Konflik Rusia Ukraina Kalo Kejadian di Kantor",
+      "image": "THUMBNAIL-8.png",
+      "category": "Namanya Juga Lyfe • Lifestyle",
+      "date": "25 Oktober 2021"
+    }
+  ]
+}
