@@ -2,14 +2,15 @@
   "headline": {
     "title": "Berita Duka: Detik-detik Prosesi Pemakaman Ratu Elizabeth II Hari Ini Kapel St George, Windsor, Inggris.",
     "date": "25 Oktober 2021",
-    "image" : "main-thumbnail.png"
+    "image": "main-thumbnail.png",
+    "imagemobile": "main-thumbnail2.png"
   },
-
   "artikel": {
     "title": "Ferdy Sambo Tersangka Pembunuhan Berencana ke Brigadir Yosua, Kapolri: Motif Masih Didalami ",
     "date": "12 Aug 2022 15:00 WIB",
     "preview": "Kapolri Jendral Polisi Listyo Sigit Prabowo mengumumkan penetapan tersangka Irjen Pol Ferdy Sambo dalam kasus pembunuhan Brigadir Nofriansyah Yosua Hutabara atau Brigadir J. Timsus telah memutuskan untuk menetapkan saudara FS (Ferdy Sambo) sebagai tersangka,” kata Listyo dalam konfrensi pers di Mabes Polri, Selasa (9/8/2022).",
-    "image": "main-article.png"
+    "image": "main-article.png",
+    "category": "Women • Narasi Signature"
   },
   "headline_swiper": [
     {
@@ -114,12 +115,12 @@
     {
       "id": 5,
       "title": "Harga Melambung, Pemerintah CabutT HET Migor Kemasan",
-      "image": "Rectangle-5.png",
+      "image": "Rectangle-3.png",
       "date": "25 Oktober 2021"
     }
   ],
 
-  "artikel_swiper": [
+  "artikellist": [
     {
       "id": 1,
       "title": "Harga Melambung, Pemerintah CabutT HET Migor Kemasan",

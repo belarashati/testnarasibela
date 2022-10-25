@@ -21,7 +21,7 @@ export const state = () => ({
 
 export const mutations = {
   HEADLINE(state, data) {
-    state.headline = data.res;
+    state.headline.data = data.res;
   },
   ARTICLE(state, data) {
     state.article.data = data.res;
@@ -58,10 +58,10 @@ export const actions = {
   },
   async getMainArticle({ commit }) {
     await this.$axios
-      .$get(`http://localhost:3001/article`)
+      .$get(`http://localhost:3001/artikel`)
       .then((response) => {
         console.log(response);
-        commit('ARTICLE', {
+        commit("ARTICLE", {
           res: response,
           onResponse: response.completed,
         });
@@ -73,10 +73,10 @@ export const actions = {
   },
   async getHeadlineList({ commit }) {
     await this.$axios
-      .$get(`http://localhost:3001/headline_swiper"`)
+      .$get(`http://localhost:3001/headline_swiper`)
       .then((response) => {
         console.log(response);
-        commit('HEADLINE_SWIPER', response);
+        commit("HEADLINE_SWIPER", response);
         return response;
       })
       .catch((e) => {
@@ -85,10 +85,10 @@ export const actions = {
   },
   async getTerpopuler({ commit }) {
     await this.$axios
-      .$get(`http://localhost:3001/terpopuler"`)
+      .$get(`http://localhost:3001/terpopuler`)
       .then((response) => {
         console.log(response);
-        commit('TERPOPULER', response);
+        commit("TERPOPULER", response);
         return response;
       })
       .catch((e) => {
@@ -97,7 +97,7 @@ export const actions = {
   },
   async getPilihanNarasi({ commit }) {
     await this.$axios
-      .$get(`http://localhost:3001/pilihan_narasi"`)
+      .$get(`http://localhost:3001/pilihan_narasi`)
       .then((response) => {
         console.log(response);
         commit('PILIHAN_NARASI', response);
@@ -109,10 +109,10 @@ export const actions = {
   },
   async getArticleList({ commit }) {
     await this.$axios
-      .$get(`http://localhost:3001/artikel_swiper"`)
+      .$get(`http://localhost:3001/artikellist`)
       .then((response) => {
         console.log(response);
-        commit('ARTICLE_LIST', response);
+        commit("ARTICLE_LIST", response);
         return response;
       })
       .catch((e) => {

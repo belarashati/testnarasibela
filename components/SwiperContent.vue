@@ -7,23 +7,38 @@
             <a class="category">{{news_title}}</a>
           </div>
           <a class="view-all">Lihat semua</a>
-      </div>
+    </div>
+
+    
     <div class="content">
       <swiper class="swiper" :options="swiperOption">
-            <swiper-slide v-for="(item,index) in swiperList" :key="index">
-              <div>
-                <img :src="item.img" alt="" class="thumbnail" />
-                <a v-if="news_type == 1" class="narasumber">{{item.text}}</a>
-                <a class="subTitle">{{item.subTitle}}</a>
-                <a v-if="news_type == 2" class="see-more">LIHAT PLAYLIST SELENGKAPNYA</a>
+            <swiper-slide v-for="(item,index) in news_list" :key="index">
+              <div class="card-list">
+                <div class="video-wrapper">
+                  <div>
+                    <img :src="item.image" alt="" class="thumbnail" />
+                  </div>
+                  
+                  <div v-if="news_type == 2" class="shadow-video">
+                    <img src="play_circle.png"/>>
+                    <a class="video-text">4 video</a>
+                  </div>
+                </div>
+                
+                <div>
+                  <a v-if="news_type == 1" class="narasumber">{{item.category}}</a>
+                  <a class="subTitle">{{item.title}}</a>
+                  <a v-if="news_type == 2" class="see-more">LIHAT PLAYLIST SELENGKAPNYA</a>
+                </div>
+                
               </div>
             </swiper-slide>
         <div class="swiper-button-prev" slot="button-prev"></div>
         <div class="swiper-button-next" slot="button-next"></div>
         </swiper>
 
-        <div class="shadow-wrapper shadow-left"></div>
-        <div class="shadow-wrapper shadow-right"></div>
+        <div class="shadow-wrapper shadow-left desktop-view-visible"></div>
+        <div class="shadow-wrapper shadow-right desktop-view-visible"></div>
       
     </div>
   </div>
@@ -44,17 +59,9 @@
     },
     data() {
       return {
-        swiperList:[
-        { img:"thumbnail-1.png", text: "AKU BELA", subTitle: "AAAAAAAAAAAA"},
-        { img:"THUMBNAIL-2.png", text: "AKU BELA", subTitle: "AAAAAAAAAAAA"},
-        { img:"THUMBNAIL-3.png", text: "AKU BELA", subTitle: "AAAAAAAAAAAA"},
-        { img:"THUMBNAIL-1.png", text: "AKU BELA", subTitle: "AAAAAAAAAAAA"},
-        { img:"THUMBNAIL-2.png", text: "AKU BELA", subTitle: "AAAAAAAAAAAA"},
-        { img:"thumbnail-1.png", text: "AKU BELA", subTitle: "AAAAAAAAAAAA"},
-      ],
         swiperOption: {
-          slidesPerView: 4.2,
-          spaceBetween: 5,
+          slidesPerView: 4,
+          spaceBetween: 3,
           slidesPerGroup: 1,
           loop: false,
           loopFillGroupWithBlank: true,
@@ -65,8 +72,38 @@
           navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev'
+          },
+          breakpoints: {
+             // when window width is <= 499px
+            0: {
+                slidesPerView: 1.3,
+                spaceBetweenSlides: 5
+            },
+            499: {
+                slidesPerView: 1.4,
+                spaceBetweenSlides: 5
+            },
+            550: {
+                slidesPerView: 2.2,
+                spaceBetweenSlides: 5
+            },
+            699: {
+                slidesPerView: 2.2,
+                spaceBetweenSlides: 5
+            },
+
+            1024: {
+                slidesPerView: 3,
+                spaceBetweenSlides: 5
+            },
+
+            1180: {
+                slidesPerView: 4,
+                spaceBetweenSlides: 5
+            }
           }
-        }
+        },
+
       }
     },
 
@@ -78,6 +115,10 @@
     news_type: {
       type: Number,
       default: 0,
+    },
+    news_list: {
+      type: Array,
+      default: [],
     }
     
   }
@@ -87,13 +128,10 @@
 <style lang="scss" scoped>
 @import 'node_modules/swiper/swiper.scss';
 .wrapper{
-  margin-top: 30px;
+  margin-top: 20px;
   .content{
-    display: block;
     position: relative;
     flex-direction:column;
-    margin-left: 50px;
-    margin-right: 50px;
 
     .shadow-wrapper{
       pointer-events: none;
@@ -117,19 +155,41 @@
         background: linear-gradient(272.36deg, #F1F1F1 2.21%, rgba(241, 241, 241, 0) 98.25%);
       }
 
-    
-    .thumbnail{
-        height: 160px;
-        width: 284px;
+    .card-list{
+      width: 234px;
+    }
+
+    .video-wrapper{
+      height: 130px;
+
+      .thumbnail{
+        display: flex;
+        height: 130px;
+        width: 234px;
         left: 128px;
-        top: 633px;
+        top: 600px;
         border-radius: 4px;
+    }
+    .shadow-video{
+      height: 20px;
+      width: 234px;
+      background: #0C0B0D;
+      opacity: 0.7;
+      display: flex;
+      top: 110px;
+      position: absolute;
+      border-bottom-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+      justify-content: center;
+      align-items: center;
+
+  }
     }
     .narasumber{
       font-family: 'Roboto';
       font-style: normal;
       font-weight: 400;
-      font-size: 12px;
+      font-size: 10px;
       line-height: 100%;
       display: flex;
       align-items: center;
@@ -137,6 +197,8 @@
       flex: none;
       order: 2;
       flex-grow: 0;
+      margin-bottom: 5px;
+      margin-top: 5px;
     }
 
     .subTitle{
@@ -151,12 +213,13 @@
       flex: none;
       order: 1;
       flex-grow: 0;
+      margin-bottom: 5px;
 
     }
 
     .see-more{
       font-family: Roboto;
-      font-size: 12px;
+      font-size: 10px;
       font-weight: 500;
       line-height: 12px;
       letter-spacing: 0em;
@@ -172,8 +235,6 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin-left: 50px;
-        margin-right: 50px;
 
         .view-all{
         font-family: 'Roboto';
@@ -205,6 +266,21 @@
       color: #4A25AA;
     }
     }
+  }
+
+  .mobile-swiper-visible{
+    display: none;
+  @media only screen and (max-width: 1024px) {
+    display: block;
+  }
+  }
+
+  .video-text{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    color: #FFFFFF;
   }
 }
 

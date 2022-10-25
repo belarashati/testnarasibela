@@ -8,8 +8,13 @@
     <div class="shadow"></div>
     <div class="headline-title">
       <a class="headline-style">Mata Najwa</a>
-      <a class="main-headline">{{$store.state.narasi}}</a>
+      <a class="main-headline">Berita Duka: Detik-detik Prosesi Pemakaman Ratu Elizabeth II Hari Ini Kapel St George, Windsor, Inggris. </a>
       <a class="headline-style">Mata Najwa</a>
+<!-- <div class="content-slider">
+        <Swiper
+        :news_type_title=null
+        />
+      </div> -->
     </div>
       
     </div>
@@ -21,18 +26,8 @@
 <script>
 import Swiper from './Swiper.vue';
 export default {
-    components: { Swiper },
-
-    methods: {
-      async initData() {
-        await this.$store.dispatch('narasi/getMainHeadline')
-        await this.$store.dispatch('narasi/getHeadlineList')
-      },
-    },
-    mounted() {
-      this.initData()
-      console.log(this.value)
-    },
+    name: "Headline",
+    components: { Swiper }
 };
 </script>
 
@@ -83,8 +78,6 @@ export default {
       font-style: normal;
       font-size: 32px;
       color: #EEEEEE;
-    
-
   }
     
 

@@ -2,19 +2,34 @@
   
   <div class="wrapper">
   
-    <div class="content">
+    <div class="content desktop-view-visible">
       <swiper class="swiper" :options="swiperOption">
-        <swiper-slide v-for="(item,index) in swiperList" :key="index">
+        <swiper-slide v-for="(data,index) in news_list" :key="index">
           <div>
-            <img :src="item.img" alt="" class="thumbnail" />
-            <a class="narasumber">{{item.text}}</a>
-            <a class="subTitle">{{item.subTitle}}</a>
-            <a class="narasumber">{{item.text}}</a>
+            <img :src="data.image" alt="" class="thumbnail"  />
+            <a class="narasumber">{{data.source}}</a>
+            <a class="subTitle">{{data.title}}</a>
+            <a class="date-style">{{data.date}}</a>
           </div>
       
         </swiper-slide>
         <div class="swiper-button-prev" slot="button-prev"></div>
         <div class="swiper-button-next" slot="button-next"></div>
+    
+      </swiper>
+    </div>
+
+    <div class="content mobile-view-visible">
+      <swiper class="swiper" :options="swiperOptionMobile">
+        <swiper-slide v-for="(data,index) in news_list" :key="index">
+          <div>
+            <img :src="data.image" alt="" class="thumbnail"  />
+            <a class="narasumber">{{data.source}}</a>
+            <a class="subTitle">{{data.title}}</a>
+            <a class="date-style">{{data.date}}</a>
+          </div>
+      
+        </swiper-slide>
     
       </swiper>
     </div>
@@ -36,16 +51,8 @@
     },
     data() {
       return {
-        swiperList:[
-        { img:"headline-cat.png", text: "AKU BELA"},
-        { img:"thumbnail-1.png", text: "AKU BELA", subTitle: "AAAAAAAAAAAA"},
-        { img:"THUMBNAIL-2.png", text: "AKU BELA", subTitle: "AAAAAAAAAAAA"},
-        { img:"THUMBNAIL-3.png", text: "AKU BELA", subTitle: "AAAAAAAAAAAA"},
-        { img:"THUMBNAIL-1.png", text: "AKU BELA", subTitle: "AAAAAAAAAAAA"},
-        { img:"THUMBNAIL-2.png", text: "AKU BELA", subTitle: "AAAAAAAAAAAA"},
-      ],
         swiperOption: {
-          slidesPerView: 4.2,
+          slidesPerView: 4,
           spaceBetween: 5,
           slidesPerGroup: 1,
           loop: true,
@@ -57,15 +64,79 @@
           navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev'
+          },
+          breakpoints: {
+             // when window width is <= 499px
+            0: {
+                slidesPerView: 1.4,
+                spaceBetweenSlides: 5
+            },
+            499: {
+                slidesPerView: 2.2,
+                spaceBetweenSlides: 5
+            },
+            // when window width is <= 999px
+            699: {
+                slidesPerView: 3,
+                spaceBetweenSlides: 5
+            },
+
+            999: {
+                slidesPerView: 3,
+                spaceBetweenSlides: 5
+            },
+
+            1299: {
+                slidesPerView: 4,
+                spaceBetweenSlides: 5
+            }
           }
-        }
+        },
+
+        swiperOptionMobile: {
+          slidesPerView: 2.2,
+          spaceBetween: 3,
+          slidesPerGroup: 1,
+          loop: true,
+          loopFillGroupWithBlank: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev'
+          },
+                    breakpoints: {
+             // when window width is <= 499px
+            0: {
+                slidesPerView: 2.2,
+                spaceBetweenSlides: 5
+            },
+            499: {
+                slidesPerView: 3,
+                spaceBetweenSlides: 5
+            },
+
+            // when window width is <= 999px
+            699: {
+                slidesPerView: 3.5,
+                spaceBetweenSlides: 5
+            },
+
+            799: {
+                slidesPerView: 4,
+                spaceBetweenSlides: 5
+            }
+          }
+        },  
       }
     },
 
     props: {
-    news_type_title: {
-      type: String,
-      default: 'INI DEFAULTNYA',
+    news_list: {
+      type: Array,
+      default: [],
     }
     
   }
@@ -75,21 +146,25 @@
 <style lang="scss" scoped>
 @import 'node_modules/swiper/swiper.scss';
 .wrapper{
-  background: black;
   .content{
-    display: block;
     position: relative;
-    padding-left: 50px;
-    padding-right: 50px;
     margin-top: 10px;
     padding-bottom: 10px;
 
   .thumbnail{
-    height: 160px;
-    width: 284px;
+    height: 130px;
+    width: 234px;
     left: 128px;
-    top: 633px;
+    top: 600px;
     border-radius: 4px;
+
+    @media only screen and (max-width: 1024px) {
+    height: 88px;
+    width: 152px;
+    left: 0%;
+    top: 0%;
+    border-radius: 4px;
+  }
 
   }
   .narasumber{
@@ -112,7 +187,24 @@
     display: flex;
     align-items: center;
     color: #FAFAFA;
+    margin-top: 5px;
+    margin-bottom: 5px;
 
+    @media only screen and (max-width: 1024px) {
+      font-size: 14px;
+    }
+
+    }
+
+    .date-style{
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 100%;          
+      display: flex;
+      align-items: center;
+      color: #BDBDBD;
     }
   }
 }
