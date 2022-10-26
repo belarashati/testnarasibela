@@ -13,15 +13,17 @@
     <div class="content">
       <swiper class="swiper" :options="swiperOption">
             <swiper-slide v-for="(item,index) in news_list" :key="index">
-              <div class="card-list">
+              <div class="card-wrapper">
                 <div class="video-wrapper">
-                  <div>
-                    <img :src="item.image" alt="" class="thumbnail" />
+                  <div class="image-wrapper">
+                    <div>
+                      <img :src="item.image" alt="" class="thumbnail" />
+                    </div>
+                    
+                    <div v-if="news_type == 2" class="shadow-video">
+                      <img src="play_circle.png"/>>
+                      <a class="video-text">4 video</a>
                   </div>
-                  
-                  <div v-if="news_type == 2" class="shadow-video">
-                    <img src="play_circle.png"/>>
-                    <a class="video-text">4 video</a>
                   </div>
                 </div>
                 
@@ -33,12 +35,13 @@
                 
               </div>
             </swiper-slide>
-        <div class="swiper-button-prev" slot="button-prev"></div>
-        <div class="swiper-button-next" slot="button-next"></div>
+            <div class="shadow-wrapper shadow-left desktop-view-visible" slot="button-prev"></div>
+            <div class="shadow-wrapper shadow-right desktop-view-visible" slot="button-next"></div>
+            <div class="swiper-button-prev" slot="button-prev"></div>
+            <div class="swiper-button-next" slot="button-next"></div>
         </swiper>
 
-        <div class="shadow-wrapper shadow-left desktop-view-visible"></div>
-        <div class="shadow-wrapper shadow-right desktop-view-visible"></div>
+
       
     </div>
   </div>
@@ -60,8 +63,6 @@
     data() {
       return {
         swiperOption: {
-          slidesPerView: 4,
-          spaceBetween: 3,
           slidesPerGroup: 1,
           loop: false,
           loopFillGroupWithBlank: true,
@@ -76,30 +77,12 @@
           breakpoints: {
              // when window width is <= 499px
             0: {
-                slidesPerView: 1.3,
-                spaceBetweenSlides: 5
+                slidesPerView: 1.1,
+                spaceBetween: 18
             },
-            499: {
-                slidesPerView: 1.4,
-                spaceBetweenSlides: 5
-            },
-            550: {
-                slidesPerView: 2.2,
-                spaceBetweenSlides: 5
-            },
-            699: {
-                slidesPerView: 2.2,
-                spaceBetweenSlides: 5
-            },
-
             1024: {
-                slidesPerView: 3,
-                spaceBetweenSlides: 5
-            },
-
-            1180: {
                 slidesPerView: 4,
-                spaceBetweenSlides: 5
+                spaceBetween: 15
             }
           }
         },
@@ -128,10 +111,16 @@
 <style lang="scss" scoped>
 @import 'node_modules/swiper/swiper.scss';
 .wrapper{
-  margin-top: 20px;
+  margin-top:34px;
   .content{
     position: relative;
-    flex-direction:column;
+
+    .card-wrapper{
+      width: 100%;
+      height: min-content;
+      display: block;
+      position: relative;
+    }
 
     .shadow-wrapper{
       pointer-events: none;
@@ -155,43 +144,13 @@
         background: linear-gradient(272.36deg, #F1F1F1 2.21%, rgba(241, 241, 241, 0) 98.25%);
       }
 
-    .card-list{
-      width: 234px;
-    }
-
-    .video-wrapper{
-      height: 130px;
-
-      .thumbnail{
-        display: flex;
-        height: 130px;
-        width: 234px;
-        left: 128px;
-        top: 600px;
-        border-radius: 4px;
-    }
-    .shadow-video{
-      height: 20px;
-      width: 234px;
-      background: #0C0B0D;
-      opacity: 0.7;
-      display: flex;
-      top: 110px;
-      position: absolute;
-      border-bottom-right-radius: 5px;
-      border-bottom-left-radius: 5px;
-      justify-content: center;
-      align-items: center;
-
-  }
-    }
     .narasumber{
       font-family: 'Roboto';
       font-style: normal;
       font-weight: 400;
       font-size: 10px;
       line-height: 100%;
-      display: flex;
+      display: block;
       align-items: center;
       color: #4A25AA;
       flex: none;
@@ -207,7 +166,7 @@
       font-weight: 700;
       font-size: 16px;
       line-height: 125%;
-      display: flex;
+      display: block;
       align-items: center;
       color: #0C0B0D;
       flex: none;
@@ -235,6 +194,9 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        @media only screen and (max-width: 1024px) {
+          margin-bottom: 16px;
+        }
 
         .view-all{
         font-family: 'Roboto';
@@ -242,9 +204,16 @@
         font-weight: 500;
         align-items: center;
         text-align: right;
-        line-height: 50px;
         text-decoration-line: underline;
         color: #4A25AA;
+        font-size: 16px;
+        line-height: 50px;
+        @media only screen and (max-width: 1024px) {
+          font-size: 10px;
+          font-weight: 500;
+          line-height: 15px;
+          letter-spacing: 0em;
+        }
 
       }
       .wrapper-category{
@@ -254,7 +223,13 @@
         width: 9px;
         height: 22px;
         background: #FFE900;
-        margin-right: 20px;
+        margin-right: 17px;
+          @media only screen and (max-width: 1024px) {
+            height: 14px;
+            width: 4px;
+            margin-right: 8px;
+          }
+
       }
 
     .category{
@@ -262,18 +237,22 @@
       font-style: normal;
       font-weight: 700;
       font-size: 20px;
+      line-height: 100%;
       display: flex;
       color: #4A25AA;
+
+      @media only screen and (max-width: 1024px) {
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 14px;
+        letter-spacing: 0em;
+      }
+
+
     }
     }
   }
 
-  .mobile-swiper-visible{
-    display: none;
-  @media only screen and (max-width: 1024px) {
-    display: block;
-  }
-  }
 
   .video-text{
     font-family: 'Roboto';
@@ -282,6 +261,77 @@
     font-size: 14px;
     color: #FFFFFF;
   }
+
+  .video-wrapper{
+    height: min-content;
+    width: 100%;
+    display: block;
+    position: relative;
+
+      .shadow-video{
+      height: 20px;
+      width: 100%;
+      background: #0C0B0D;
+      opacity: 0.7;
+      display: flex;
+      bottom: 0;
+      position: absolute;
+      border-bottom-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+      justify-content: center;
+      align-items: center;
+
+      }
+    }
+
+    .thumbnail{
+        height: auto;
+        width: 100%;
+        left: 128px;
+        top: 0px;
+        border-radius: 4px;
+         @media only screen and (max-width: 1024px) {
+          left: 0px;
+          top: 0px;
+         }
+      }
+
+  .image-wrapper{
+      width: 100%;
+      height: auto;
+    }
+
+  .swiper-button-next{
+    color: transparent;
+    background-image: url("static/narasi-next-black.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 23px;
+    width: 13px;
+    @media only screen and (max-width: 1024px) {
+      display: none;
+    }
+  }
+
+
+  .swiper-button-prev{
+    color: transparent;
+    background-image: url("static/narasi-prev-black.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 23px;
+    width: 13px;
+    display: block;
+
+    
+    @media only screen and (max-width: 1024px) {
+      display: none;
+    }
+  }
+  .swiper-button-disabled{
+    opacity: 0;
+  }
+
 }
 
 </style>

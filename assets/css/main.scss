@@ -10,17 +10,18 @@ body{
     margin-right: auto;
     margin-left: auto;
     height: 100%;
-    
-    @media only screen and (max-width: 1180px) {
-        max-width: 750px;
-    }
-   @media only screen and (max-width: 768px) {
-        max-width: 550px;
-   }
 
-   @media only screen and (max-width: 576px) {
+    @media only screen and (max-width: 1024px) {
+        max-width: 768px;
+    }
+    
+    @media only screen and (max-width: 768px) {
+        max-width: 550px;
+    }
+
+    @media only screen and (max-width: 576px) {
         max-width: 350px;
-   }
+    }
 }
 
 

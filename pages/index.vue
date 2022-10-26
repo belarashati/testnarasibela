@@ -78,14 +78,13 @@
       
       </div>
 
-      <div class="wrapper-footer">
+    <div class="wrapper-footer">
         <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
         <div class="footer-detail container">
             <div class="main-content">
              <img src="narasi-ungu.png" class="main-logo-footer" />
                 <div class="information desktop-view-visible">
                     <div class="group-about">
-                        <a>Press Release • </a>
                         <a>Informasi Perusahaan • </a>
                         <a>Syarat dan Ketentuan Umum</a>
                     </div>
@@ -292,6 +291,7 @@ export default {
   .headline-copy{
     background: #000;
     width: 100%;
+    padding-bottom: 8px;
 
   }
 
@@ -299,13 +299,13 @@ export default {
     font-size: 16px;
     font-weight: 500;
     color: #ffe900;
-    margin: 0;
     font-family: 'Roboto';
     font-style: normal;
       @media only screen and (max-width: 1024px) {
         display: block;
         font-size: 12px;
         line-height: 12px;
+        margin-bottom: 3px;
       }
   }
 
@@ -313,13 +313,14 @@ export default {
     font-size: 16px;
     font-weight: 500;
     color: #EEEEEE;
-    margin: 0;
     font-family: 'Roboto';
     font-style: normal;
+    padding-bottom: 8px;
+    display: block;
     @media only screen and (max-width: 1024px) {
-        display: block;
         font-size: 12px;
         line-height: 12px;
+        padding-bottom: 16px;
       }
   }
 
@@ -375,13 +376,11 @@ export default {
         display: block;
         padding: 50px 0;
         .main-content{
-            max-width: 960px;
             width: 100%;
-            height: fit-content;
+            height: auto;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 20px;
             margin-left: auto;
             margin-right: auto;
 
@@ -390,8 +389,8 @@ export default {
         .information{
                 .group-about{
                   display: flex;
-                  justify-content: space-between;
-                  margin-bottom: 5px;
+                  justify-content: center;
+                  margin-top: 12px;
                   @media only screen and (max-width: 1024px) {
                     display: flex;
                     width: 100%;
@@ -401,10 +400,11 @@ export default {
                         font-family: Roboto;
                         font-size: 14px;
                         font-weight: 400;
-                        line-height: 14px;
+                        line-height: 100%;
                         letter-spacing: 0em;
                         text-align: center;
                         color: #616161;
+                        margin-left: 5px;
 
                     }
                 }
@@ -414,6 +414,10 @@ export default {
             display: block;
             position: relative;
             justify-items: center;
+            margin-top: 27px;
+            @media only screen and (max-width: 1024px) {
+              margin-top: 35px;
+            }
             a{
                 width: 100%;
                 font-family: Roboto;

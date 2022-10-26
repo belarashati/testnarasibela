@@ -16,7 +16,7 @@
       <div class="article-preview">
         <a class="article-category">{{category}}</a>
         <a class="article-title">{{title}}</a>
-        <a class="article-text">{{preview}}</a>
+        <a class="article-text desktop-view-visible">{{preview}}</a>
         <a class="article-date">{{date}}</a>
 
       </div>
@@ -25,24 +25,24 @@
       
     <div class="content">
       
-    <swiper class="swiper" :options="swiperOption">
-    <swiper-slide v-for="(data,index) in news_list" :key="index">
-      <div class="card-list">
-        <img :src="data.image" alt="" class="thumbnail" />
-        <a class="narasumber">{{data.category}}</a>
-        <a class="subTitle">{{data.title}}</a>
-        <a class="date-swiper">{{data.date}}</a>
-      </div>
-      
-    </swiper-slide>
-    <div class="swiper-button-prev" slot="button-prev"></div>
-    <div class="swiper-button-next" slot="button-next"></div>
-  </swiper>
-    <div class="shadow-wrapper shadow-left desktop-view-visible"></div>
-    <div class="shadow-wrapper shadow-right desktop-view-visible"></div>
+      <swiper class="swiper" :options="swiperOption">
+        <swiper-slide v-for="(data,index) in news_list" :key="index">
+          <div class="card-list">
+          <img :src="data.image" alt="" class="thumbnail" />
+          <a class="narasumber">{{data.category}}</a>
+          <a class="subTitle">{{data.title}}</a>
+          <a class="date-swiper">{{data.date}}</a>
+          </div>
+        
+        </swiper-slide>
+
+          <div class="shadow-wrapper shadow-left desktop-view-visible" slot="button-prev"></div>
+          <div class="shadow-wrapper shadow-right desktop-view-visible" slot="button-next"></div>
+          <div class="swiper-button-prev" slot="button-prev"></div>
+          <div class="swiper-button-next" slot="button-next"></div>
+        
+      </swiper>
     </div>
-    
-  
     
   </div>
 
@@ -77,32 +77,13 @@
             prevEl: '.swiper-button-prev'
           },
           breakpoints: {
-             // when window width is <= 499px
             0: {
-                slidesPerView: 1.3,
-                spaceBetweenSlides: 5
-            },
-            499: {
-                slidesPerView: 1.4,
-                spaceBetweenSlides: 5
-            },
-            550: {
                 slidesPerView: 2.2,
-                spaceBetweenSlides: 5
+                spaceBetween: 15
             },
-            699: {
-                slidesPerView: 2.2,
-                spaceBetweenSlides: 5
-            },
-
             1024: {
-                slidesPerView: 3,
-                spaceBetweenSlides: 5
-            },
-
-            1180: {
                 slidesPerView: 4,
-                spaceBetweenSlides: 5
+                spaceBetween: 15
             }
           }
         }
@@ -175,11 +156,15 @@
       }
     
 .thumbnail{
-    height: 130px;
-    width: 234px;
+  height: auto;
+    width: 100%;
     left: 128px;
-    top: 600px;
+    top: 0px;
     border-radius: 4px;
+     @media only screen and (max-width: 1024px) {
+      left: 0px;
+      top: 0px;
+     }
 
   }
   .narasumber{
@@ -229,6 +214,9 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        @media only screen and (max-width: 1024px) {
+          margin-bottom: 16px;
+        }
 
         .view-all{
         font-family: 'Roboto';
@@ -236,10 +224,16 @@
         font-weight: 500;
         align-items: center;
         text-align: right;
+        font-size: 16px;
         line-height: 50px;
         text-decoration-line: underline;
         color: #4A25AA;
-
+        @media only screen and (max-width: 1024px) {
+          font-size: 10px;
+          font-weight: 500;
+          line-height: 15px;
+          letter-spacing: 0em;
+        }
       }
       .wrapper-category{
         display: flex;
@@ -248,7 +242,12 @@
         width: 9px;
         height: 22px;
         background: #FFE900;
-        margin-right: 20px;
+        margin-right: 17px;
+          @media only screen and (max-width: 1024px) {
+            height: 14px;
+            width: 4px;
+            margin-right: 8px;
+          }
       }
 
     .category{
@@ -258,6 +257,12 @@
       font-size: 20px;
       display: flex;
       color: #4A25AA;
+      @media only screen and (max-width: 1024px) {
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 14px;
+        letter-spacing: 0em;
+      }
     }
     }
   }
@@ -266,7 +271,7 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 32px;
 
     @media only screen and (max-width: 1024px) {
       display: flex;
@@ -295,34 +300,42 @@
   }
 
   .card-list{    
-    width: 234px;
+      width: 100%;
+      height: min-content;
+      display: block;
+      position: relative;
   }
 
   .article-category{
    font-family: 'Roboto';
     font-style: normal;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 14px;
     line-height: 10%;
     display: flex;
     align-items: center;
     color: #4A25AA;
+    margin-bottom: 14px;
+    @media only screen and (max-width: 1024px) {
+      font-weight: 400;
+          font-size: 12px;
+          line-height: 12px;
+          margin-bottom: 10px;
+    }
   }
 
   .article-title{
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 500;
-    font-size: 26px;
-    line-height: 150%;
+    font-size: 30px;
+    line-height: 45px;
     display: flex;
     align-items: center;
     color: #051C2C;
     @media only screen and (max-width: 1024px) {
           font-size: 16px;
-          line-height: 100%;
-          margin-top: 10px;
-          margin-bottom: 10px;
+          line-height: 20px;
     }
   }
 
@@ -331,8 +344,7 @@
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
-    line-height: 150%;
-    display: flex;
+    line-height: 18px;
     align-items: center;
     color: #757575;
 
@@ -347,12 +359,43 @@
     display: flex;
     align-items: center;
     color: #616161;
+    @media only screen and (max-width: 1024px) {
+      margin-top: 12px;
+    }
   }
 
   .image-article{
     height: auto;
     width: 100%;
     border-radius: 5px;
+  }
+
+  .swiper-button-next{
+    color: transparent;
+    background-image: url("static/narasi-next-black.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 23px;
+    width: 13px;
+    @media only screen and (max-width: 1024px) {
+      display: none;
+    }
+  }
+
+  .swiper-button-prev{
+    color: transparent;
+    background-image: url("static/narasi-prev-black.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 23px;
+    width: 13px;
+    @media only screen and (max-width: 1024px) {
+      display: none;
+    }
+  }
+
+  .swiper-button-disabled{
+    opacity: 0;
   }
 }
 

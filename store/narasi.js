@@ -20,22 +20,22 @@ export const state = () => ({
 });
 
 export const mutations = {
-  HEADLINE(state, data) {
+  set_headline(state, data) {
     state.headline.data = data.res;
   },
-  ARTICLE(state, data) {
+  set_article(state, data) {
     state.article.data = data.res;
   },
-  HEADLINE_SWIPER(state, data) {
+  set_headline_list(state, data) {
     state.headlineList.data = data;
   },
-  TERPOPULER(state, data) {
+  set_terpopuler_list(state, data) {
     state.terpopulerList.data = data;
   },
-  PILIHAN_NARASI(state, data) {
+  set_pilihan_narasi(state, data) {
     state.narasiList.data = data;
   },
-  ARTICLE_LIST(state, data) {
+  set_article_list(state, data) {
     state.articleList.data = data;
   },
 };
@@ -45,8 +45,7 @@ export const actions = {
     await this.$axios
       .$get(`http://localhost:3001/headline`)
       .then((response) => {
-        console.log(response);
-        commit('HEADLINE', {
+        commit('set_headline', {
           res: response,
           onResponse: response.completed,
         });
@@ -60,8 +59,7 @@ export const actions = {
     await this.$axios
       .$get(`http://localhost:3001/artikel`)
       .then((response) => {
-        console.log(response);
-        commit("ARTICLE", {
+        commit("set_article", {
           res: response,
           onResponse: response.completed,
         });
@@ -75,8 +73,7 @@ export const actions = {
     await this.$axios
       .$get(`http://localhost:3001/headline_swiper`)
       .then((response) => {
-        console.log(response);
-        commit("HEADLINE_SWIPER", response);
+        commit("set_headline_list", response);
         return response;
       })
       .catch((e) => {
@@ -87,8 +84,7 @@ export const actions = {
     await this.$axios
       .$get(`http://localhost:3001/terpopuler`)
       .then((response) => {
-        console.log(response);
-        commit("TERPOPULER", response);
+        commit("set_terpopuler_list", response);
         return response;
       })
       .catch((e) => {
@@ -99,8 +95,7 @@ export const actions = {
     await this.$axios
       .$get(`http://localhost:3001/pilihan_narasi`)
       .then((response) => {
-        console.log(response);
-        commit('PILIHAN_NARASI', response);
+        commit('set_pilihan_narasi', response);
         return response;
       })
       .catch((e) => {
@@ -111,8 +106,7 @@ export const actions = {
     await this.$axios
       .$get(`http://localhost:3001/artikellist`)
       .then((response) => {
-        console.log(response);
-        commit("ARTICLE_LIST", response);
+        commit("set_article_list", response);
         return response;
       })
       .catch((e) => {
